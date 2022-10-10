@@ -10,4 +10,8 @@ def loss_function(x, x_hat, mu, log_var):
         1 + log_var - mu**2 - log_var.exp()
     )
 
-    return reconstruction_loss + kl_divergence
+    return (
+        reconstruction_loss + kl_divergence,
+        reconstruction_loss.item(),
+        kl_divergence.item()
+    )
